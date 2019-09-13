@@ -1,4 +1,18 @@
-import React from 'react';
+// dependencies
+import React, { useEffect, useState }  from "react";
+import axios from "axios";
+import {
+  Jumbotron,
+  Container,
+  Toast,
+  ToastBody,
+  ToastHeader
+} from "reactstrap";
+
+// components
+import CharPage from "./components/characterpage"
+
+// styles
 import './App.css';
 
 const App = () => {
@@ -9,9 +23,42 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
+  const [characterPage, setCharacterPage] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(`https://swapi.co/api/people/`)
+      .then(response => {
+        const characterPage = response.data;
+        console.log("CHARACTER PAGE:", characterPage);
+        setCharacterPage(characterPage);
+      })
+      /* example object
+      apod = 
+      end example object */
+
+      .catch(error => {
+        console.log("The data was not returned", error);
+      });
+  }, []);
+
+  console.log(characterPage);
+
   return (
     <div className="App">
+      {/*HEADER*/}
+      
       <h1 className="Header">React Wars</h1>
+
+      {/*NAV*/}
+
+      {/*JUMBOTRON */}
+
+      {/*CHARACTER PAGE*/
+      console.log(characterPage.results)}
+      <CharPage characterList={characterPage.results} />
+      
+      {/*FOOTER*/}
     </div>
   );
 }
