@@ -25,13 +25,13 @@ const CharPage = (props) => {
         {characterList.map((character, index) => {
           console.log(character);
           return (
-            <CharacterCard
-              key={index}
-              name={character.name}
-              birth_year={character.birth_year}
-              species={character.species}
-              films={character.films}
-            />
+              <CharacterCard
+                key={index}
+                name={character.name}
+                birth_year={character.birth_year}
+                species={character.species}
+                films={character.films}
+              />
           );
           })}
       </Row>

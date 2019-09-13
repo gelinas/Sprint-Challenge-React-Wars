@@ -1,13 +1,6 @@
 // dependencies
 import React, { useEffect, useState }  from "react";
 import axios from "axios";
-import {
-  Jumbotron,
-  Container,
-  Toast,
-  ToastBody,
-  ToastHeader
-} from "reactstrap";
 
 // components
 import CharPage from "./components/characterpage"
@@ -55,7 +48,7 @@ const App = () => {
       {/*JUMBOTRON */}
 
       {/*CHARACTER PAGE*/
-      console.log(characterPage.results)}
+      console.log("on app.js", characterPage.results)}
       <CharPage characterList={characterPage.results} />
       
       {/*FOOTER*/}
