@@ -1,7 +1,9 @@
 // dependencies
 import React, { useEffect, useState }  from "react";
 import axios from "axios";
-
+import {
+  Button
+} from "reactstrap";
 // components
 import CharPage from "./components/characterpage"
 
@@ -17,23 +19,23 @@ const App = () => {
   // sync up with, if any.
 
   const [characterPage, setCharacterPage] = useState({});
+  const [currentPage, setCurrentPage] = useState(`https://swapi.co/api/people/`);
 
   useEffect(() => {
+    console.log(currentPage);
+    
     axios
-      .get(`https://swapi.co/api/people/`)
+      .get(currentPage)
       .then(response => {
         const characterPage = response.data;
         console.log("CHARACTER PAGE:", characterPage);
         setCharacterPage(characterPage);
       })
-      /* example object
-      apod = 
-      end example object */
 
       .catch(error => {
         console.log("The data was not returned", error);
       });
-  }, []);
+  }, [currentPage]);
 
   console.log(characterPage);
 
@@ -42,6 +44,13 @@ const App = () => {
       {/*HEADER*/}
       
       <h1 className="Header">React Wars</h1>
+      <Button color="danger" onClick={() => setCurrentPage(characterPage.previous)}>
+        Previous Page!
+      </Button>
+      <Button color="success" onClick={() => setCurrentPage(characterPage.next)}>
+        Next Page!
+      </Button>
+      <br /><br />
 
       {/*NAV*/}
 
