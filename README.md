@@ -1,3 +1,4 @@
+# Louis Gelinas
 # Sprint Challenge: React - Star Wars
 
 This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project. This Sprint explored ReactJS, Function Components, component state and side effects. In your challenge for this Sprint, you will demonstrate proficiency by creating an application that uses ReactJS to consume live data retrieved from the World Wide Web and style that data nicely on the page.
@@ -24,15 +25,27 @@ In this challenge, create a web page that presents a styled list of Star Wars ch
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
+- [X] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
-- [ ] What does it mean to _think_ in react?
+REACT JS is a component framework that introduces tools to dynamically render data to the DOM without requiring the entire page to reload-- it just repaints the comoponents that have been altered. It tries to solve the problem of creating dynamic, interactive webpages that are quick for coders to right and quick for browsers to load.
 
-- [ ] Describe state.
+- [X] What does it mean to _think_ in react?
 
-- [ ] Describe props.
+Thinking in REACT means thinking in components and data. Components, where functional part of a website (down to rows, columns, tables, data entries) is coded a DRY component that can be called elsewhere. State, where data is declared/tracked in state, then and passed down through props to child components.
 
-- [ ] What are side effects, and how do you sync effects in a React component to state or prop changes?
+- [X] Describe state.
+
+State is where we store dynamic data in memory, with a function, "useState," to update it. Data is best kept in the parent component where computation or data calls is being made, and then passed down through props to child components.
+
+- [X] Describe props.
+
+When a component is rendered, you can pass in "props" or properties that are referenced and manipulated within the child component. Props can be tied to state, but are by definition stateless.
+
+- [X] What are side effects, and how do you sync effects in a React component to state or prop changes?
+
+Side effects are function we run if and only if 
+1) it is the first time the component renders
+2) we have declared the useEffect function to watch a certain variable (state or props) execute the effect when that variable changes.
 
 ## Project Set Up
 
@@ -80,11 +93,11 @@ It is better to submit a challenge that meets [MVP](https://en.wikipedia.org/wik
 
 ## Stretch Problems
 
-- [ ] Add at least one test using a testing tool:
+- [X] Add at least one test using a testing tool:
   - [react-testing-library](https://github.com/testing-library/react-testing-library#basic-example)
   - [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html)
 
-- [ ] Build a pagination system that will allow you to load the next page of data.
+- [X] Build a pagination system that will allow you to load the next page of data.
   - `console.log()` the data coming back from the server.
   - Notice that there are `next` and `previous` fields that give you a URL.
   - You can build a function that will get characters called `getCharacters` that you can use dynamically to get the next or previous set of characters. You would need to supply it with the proper fields, and you'll need to set up more state to do this.
